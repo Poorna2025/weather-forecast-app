@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Forecast</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Leaflet (free map, no API key needed) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Search view -->
+    <section id="searchView" class="view active">
+      <div class="card card--center">
+        <h1>🌦️ Weather Forecast</h1>
+        <div class="search">
+          <input id="cityInput" type="text" placeholder="Enter city name…"/>
+          <button id="searchBtn">Search</button>
+        </div>
+        <p class="hint">Tip: try “Bengaluru”, “London”, “New York”…</p>
+      </div>
+    </section>
+
+    <!-- Results view -->
+    <section id="resultView" class="view">
+      <div class="topbar">
+        <button id="backBtn" class="btn-tertiary">← Back to Search</button>
+        <h2 id="cityTitle">City</h2>
+      </div>
+
+      <!-- Current weather -->
+      <div id="currentCard" class="card current">
+        <div class="current__left">
+          <img id="currentIcon" alt="icon" />
+          <div>
+            <div id="currentTemp" class="current__temp">--°C</div>
+            <div id="currentDesc" class="muted">--</div>
+          </div>
+        </div>
+        <div class="current__right">
+          <div>💧 Humidity: <span id="currentHum">--%</span></div>
+          <div>🌬️ Wind: <span id="currentWind">-- m/s</span></div>
+          <div>🕒 Updated: <span id="currentTime">--</span></div>
+        </div>
+      </div>
+
+      <!-- 5-day forecast -->
+      <h3 class="section-title">📅 5-Day Forecast</h3>
+      <div id="forecastGrid" class="grid"></div>
+
+      <!-- Map -->
+      <h3 class="section-title">📍 Location</h3>
+      <div id="map"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
